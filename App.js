@@ -75,37 +75,15 @@ const MusicPlayerScreen = () => {
       </View>
       <Animated.View
         {...panResponder.panHandlers}
-        style={[animatedHeight, {
-          position: 'absolute',
-          left: 0,
-          right: 0,
-          zIndex: 10,
-          backgroundColor: 'white',
-          borderWidth: 1,
-          borderColor: 'lightgray',
-          height: screen_height,
-        }]}>
+        style={[animatedHeight, styles.mainContainer]}>
         <Animated.View style={{ height: animatedSliderHeight, alignItems: 'center', flexDirection: 'row', width: '100%' }}>
-          <View style={{
-            flex: 4,
-            alignItems: 'center',
-            flexDirection: 'row',
-            height: 45,
-            width: 800
-          }}>
+          <View style={styles.backdrop}>
             <Animated.View style={{
               height: animatedImageHeight,
               marginLeft: animatedImageMargin,
               width: animatedImageHeight, borderRadius: 4,
             }}>
-              <Image source={require('./assets/hotel.jpg')} style={{
-                flex: 1,
-                width: null,
-                height: null,
-                borderRadius: 2,
-                borderWidth: 1,
-                borderColor: 'black',
-              }} />
+              <Image source={require('./assets/hotel.jpg')} style={styles.image} />
             </Animated.View>
             <Animated.Text style={{ opacity: animatedTextOpacity, fontSize: 17, letterSpacing: 0.8, marginLeft: 10 }}>Hotel California(Live)</Animated.Text>
           </View>
@@ -157,6 +135,31 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'white',
     zIndex: 1
+  },
+  mainContainer: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    zIndex: 10,
+    backgroundColor: 'white',
+    borderWidth: 1,
+    borderColor: 'lightgray',
+    height: screen_height,
+  },
+  backdrop: {
+    flex: 4,
+    alignItems: 'center',
+    flexDirection: 'row',
+    height: 45,
+    width: 800
+  },
+  image: {
+    flex: 1,
+    width: null,
+    height: null,
+    borderRadius: 2,
+    borderWidth: 1,
+    borderColor: 'black',
   }
 })
 
